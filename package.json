@@ -1,10 +1,13 @@
 {
+  "homepage":"https://Anjali61034.github.io/Portfolio-",
   "name": "3dfolio",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "predeploy":"npm run dev",
+    "deploy":"gh-pages -d build",
     "build": "vite build",
     "preview": "vite preview"
   },
