@@ -3,6 +3,6 @@ import react from '@vitejs/plugin-react';
 
 export default defineConfig({
   plugins: [react()],
-  base: '/Portfolio/', // Only if necessary for subdirectory hosting
+  base: '/', // Only if necessary for subdirectory hosting
 });
 
