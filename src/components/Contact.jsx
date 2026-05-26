@@ -1,6 +1,5 @@
 import React, { useRef, useState } from "react";
 import { motion } from "framer-motion";
-import emailjs from "@emailjs/browser";
 
 import { styles } from "../styles";
 import { EarthCanvas } from "./canvas";
@@ -27,42 +26,48 @@ const Contact = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
     setSent(false);
 
-    emailjs
-      .send(
-        import.meta.env.VITE_APP_EMAILJS_SERVICE_ID,
-        import.meta.env.VITE_APP_EMAILJS_TEMPLATE_ID,
-        {
-          from_name: form.name,
-          to_name: "Anjali Sharma",
-          from_email: form.email,
-          to_email: "anjalisharmaaa656@gmail.com",
-          message: form.message,
-        },
-        import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY
-      )
-      .then(
-        () => {
-          setLoading(false);
-          setSent(true);
-          alert("Thank you. I will get back to you as soon as possible.");
+    // Check if EmailJS credentials are configured
+    const serviceId = import.meta.env.VITE_APP_EMAILJS_SERVICE_ID;
+    const templateId = import.meta.env.VITE_APP_EMAILJS_TEMPLATE_ID;
+    const publicKey = import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY;
 
-          setForm({
-            name: "",
-            email: "",
-            message: "",
-          });
-        },
-        (error) => {
-          setLoading(false);
-          console.error(error);
-          alert("Ahh, something went wrong. Please try again.");
-        }
-      );
+    if (serviceId && templateId && publicKey) {
+      try {
+        const emailjs = (await import("@emailjs/browser")).default;
+        await emailjs.send(
+          serviceId,
+          templateId,
+          {
+            from_name: form.name,
+            to_name: "Anjali Sharma",
+            from_email: form.email,
+            to_email: "anjalisharmaaa656@gmail.com",
+            message: form.message,
+          },
+          publicKey
+        );
+        setLoading(false);
+        setSent(true);
+        alert("Thank you. I will get back to you as soon as possible.");
+        setForm({ name: "", email: "", message: "" });
+      } catch (error) {
+        setLoading(false);
+        console.error(error);
+        alert("Ahh, something went wrong. Please try again.");
+      }
+    } else {
+      // Fallback: mailto link when EmailJS is not configured
+      const mailtoLink = `mailto:anjalisharmaaa656@gmail.com?subject=Contact from ${form.name}&body=${encodeURIComponent(form.message)}%0A%0AFrom: ${form.email}`;
+      window.open(mailtoLink, "_blank");
+      setLoading(false);
+      setSent(true);
+      setForm({ name: "", email: "", message: "" });
+    }
   };
 
   return (
