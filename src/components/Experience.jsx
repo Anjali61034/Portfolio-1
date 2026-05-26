@@ -11,32 +11,36 @@ import { styles } from "../styles";
 import { experiences } from "../constants";
 import { SectionWrapper } from "../hoc";
 import { textVariant } from "../utils/motion";
-import Company1 from "../assets/tech/black.webp"; // Importing SVG icons
 
 const ExperienceCard = ({ experience }) => {
   return (
     <VerticalTimelineElement
       contentStyle={{
-        background: "#1d1836",
+        background: "#111118",
         color: "#fff",
+        boxShadow: "0 3px 0 #06b6d4",
+        border: "1px solid rgba(6, 182, 212, 0.1)",
       }}
-      contentArrowStyle={{ borderRight: "7px solid  #232631" }}
+      contentArrowStyle={{ borderRight: "7px solid #06b6d4" }}
       date={experience.date}
-      iconStyle={{ background: experience.iconBg }}
+      iconStyle={{ 
+        background: experience.iconBg,
+        boxShadow: "0 0 0 4px #06b6d4, inset 0 2px 0 rgba(0,0,0,.08), 0 3px 0 4px rgba(0,0,0,.05)"
+      }}
       icon={
         <div className='flex justify-center items-center w-full h-full'>
-          <img
-            src={Company1}
-            alt={experience.company_name}
-            className='w-[60%] h-[60%] object-contain'
-          />
+          <div className='w-[60%] h-[60%] rounded-full bg-accent/20 flex items-center justify-center'>
+            <span className='text-accent text-lg font-bold'>
+              {experience.company_name.charAt(0)}
+            </span>
+          </div>
         </div>
       }
     >
       <div>
         <h3 className='text-white text-[24px] font-bold'>{experience.title}</h3>
         <p
-          className='text-secondary text-[16px] font-semibold'
+          className='text-accent text-[16px] font-semibold'
           style={{ margin: 0 }}
         >
           {experience.company_name}
@@ -47,7 +51,7 @@ const ExperienceCard = ({ experience }) => {
         {experience.points.map((point, index) => (
           <li
             key={`experience-point-${index}`}
-            className='text-white-100 text-[14px] pl-1 tracking-wider'
+            className='text-secondary text-[14px] pl-1 tracking-wider'
           >
             {point}
           </li>
@@ -65,12 +69,12 @@ const Experience = () => {
           What I have done so far
         </p>
         <h2 className={`${styles.sectionHeadText} text-center`}>
-          Work Experience.
+          Experience.
         </h2>
       </motion.div>
 
       <div className='mt-20 flex flex-col'>
-        <VerticalTimeline>
+        <VerticalTimeline lineColor='#06b6d4'>
           {experiences.map((experience, index) => (
             <ExperienceCard
               key={`experience-${index}`}

@@ -17,7 +17,7 @@ const Contact = () => {
     message: "",
   });
   const [loading, setLoading] = useState(false);
-  const [sent, setSent] = useState(false); // New state to track if the message was sent
+  const [sent, setSent] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -30,7 +30,7 @@ const Contact = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     setLoading(true);
-    setSent(false); // Reset sent status on new submission
+    setSent(false);
 
     emailjs
       .send(
@@ -40,7 +40,7 @@ const Contact = () => {
           from_name: form.name,
           to_name: "Anjali Sharma",
           from_email: form.email,
-          to_email: "23001582012@maitreyi.du.ac.in",
+          to_email: "anjalisharmaaa656@gmail.com",
           message: form.message,
         },
         import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY
@@ -48,10 +48,9 @@ const Contact = () => {
       .then(
         () => {
           setLoading(false);
-          setSent(true); // Set sent to true if successful
+          setSent(true);
           alert("Thank you. I will get back to you as soon as possible.");
 
-          // Reset form fields
           setForm({
             name: "",
             email: "",
@@ -70,7 +69,7 @@ const Contact = () => {
     <div className={`xl:mt-12 flex xl:flex-row flex-col-reverse gap-10 overflow-hidden`}>
       <motion.div
         variants={slideIn("left", "tween", 0.2, 1)}
-        className="flex-[0.75] bg-black-100 p-8 rounded-2xl"
+        className="flex-[0.75] bg-black-100 p-8 rounded-2xl border border-accent/10"
       >
         <p className={styles.sectionSubText}>Get in touch</p>
         <h3 className={styles.sectionHeadText}>Contact.</h3>
@@ -83,19 +82,19 @@ const Contact = () => {
               name="name"
               value={form.name}
               onChange={handleChange}
-              placeholder="What's your good name?"
-              className="bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium"
+              placeholder="What's your name?"
+              className="bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border border-accent/10 font-medium focus:border-accent transition-colors"
             />
           </label>
           <label className="flex flex-col">
-            <span className="text-white font-medium mb-4">Your email</span>
+            <span className="text-white font-medium mb-4">Your Email</span>
             <input
               type="email"
               name="email"
               value={form.email}
               onChange={handleChange}
-              placeholder="What's your web address?"
-              className="bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium"
+              placeholder="What's your email?"
+              className="bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border border-accent/10 font-medium focus:border-accent transition-colors"
             />
           </label>
           <label className="flex flex-col">
@@ -105,27 +104,48 @@ const Contact = () => {
               name="message"
               value={form.message}
               onChange={handleChange}
-              placeholder="What you want to say?"
-              className="bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium"
+              placeholder="What would you like to say?"
+              className="bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border border-accent/10 font-medium resize-none focus:border-accent transition-colors"
             />
           </label>
 
           <button
             type="submit"
-            className="bg-tertiary py-3 px-8 rounded-xl outline-none w-fit text-white font-bold shadow-md shadow-primary"
+            className="bg-accent py-3 px-8 rounded-xl outline-none w-fit text-primary font-bold shadow-md hover:bg-accent-light transition-all duration-300 hover:shadow-glow"
           >
-            {loading ? "Sending..." : sent ? "Sent!" : "Send"}
+            {loading ? "Sending..." : sent ? "Sent!" : "Send Message"}
           </button>
         </form>
 
-        {/* Social Media Icons */}
-        <div className="socials flex flex-row gap-2 mt-8">
-          <a href="https://github.com/Anjali61034/" target="_blank" rel="noopener noreferrer">
-            <img src={GithubIcon} alt="Github Icon" width={30} height={30} />
-          </a>
-          <a href="https://www.linkedin.com/in/anjali-sharma-253317312/" target="_blank" rel="noopener noreferrer">
-            <img src={LinkedinIcon} alt="Linkedin Icon" width={30} height={30} />
-          </a>
+        <div className="mt-8">
+          <p className="text-secondary text-sm mb-4">Or connect with me on</p>
+          <div className="flex flex-row gap-4">
+            <a 
+              href="https://github.com/Anjali61034/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="w-12 h-12 rounded-full bg-tertiary border border-accent/20 flex items-center justify-center hover:border-accent hover:scale-110 transition-all duration-300"
+            >
+              <img src={GithubIcon} alt="Github" width={24} height={24} />
+            </a>
+            <a 
+              href="https://www.linkedin.com/in/anjali-sharma-253317312/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="w-12 h-12 rounded-full bg-tertiary border border-accent/20 flex items-center justify-center hover:border-accent hover:scale-110 transition-all duration-300"
+            >
+              <img src={LinkedinIcon} alt="LinkedIn" width={24} height={24} />
+            </a>
+            <a 
+              href="mailto:anjalisharmaaa656@gmail.com"
+              className="w-12 h-12 rounded-full bg-tertiary border border-accent/20 flex items-center justify-center hover:border-accent hover:scale-110 transition-all duration-300"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <rect width="20" height="16" x="2" y="4" rx="2"/>
+                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+              </svg>
+            </a>
+          </div>
         </div>
       </motion.div>
 
@@ -140,4 +160,3 @@ const Contact = () => {
 };
 
 export default SectionWrapper(Contact, "contact");
-

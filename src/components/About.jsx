@@ -1,5 +1,5 @@
 import React from "react";
-import  Tilt  from 'react-tilt';
+import Tilt from 'react-tilt';
 import { motion } from "framer-motion";
 
 import { styles } from "../styles";
@@ -19,11 +19,11 @@ const ServiceCard = ({ index, title, icon }) => (
           scale: 1,
           speed: 450,
         }}
-        className='bg-tertiary rounded-[20px] py-5 px-12 min-h-[280px] flex justify-evenly items-center flex-col'
+        className='bg-tertiary rounded-[20px] py-5 px-12 min-h-[280px] flex justify-evenly items-center flex-col card-hover'
       >
         <img
           src={icon}
-          alt='web-development'
+          alt={title}
           className='w-16 h-16 object-contain'
         />
 
@@ -47,12 +47,13 @@ const About = () => {
         variants={fadeIn("", "", 0.1, 1)}
         className='mt-4 text-secondary text-[17px] max-w-3xl leading-[30px]'
       >
-        I'm a skilled software developer with experience in TypeScript and
-        JavaScript, and expertise in frameworks like React, Node.js, and
-        Three.js. I'm a quick learner and eager to apply my skills in a practical setting and
-         learn from experienced professionals. I enjoy collaborating with others to develop
-          efficient and user-friendly solutions that solve
-        real-world problems. Let's work together to bring your ideas to life!
+        I&apos;m a passionate Full Stack Developer currently pursuing BSc Physical Science 
+        with Computer Science at University of Delhi - Maitreyi College (2023-2026). 
+        With hands-on experience in JavaScript, Python, Flutter, and Django, I specialize 
+        in building accessible and user-focused applications. Currently contributing to 
+        the Canary Indoor Navigation App at CURE International India Trust, developing 
+        accessibility-focused features for visually impaired users. I&apos;m driven by 
+        the goal of creating technology that makes a positive impact on people&apos;s lives.
       </motion.p>
 
       <div className='mt-20 flex flex-wrap gap-10'>

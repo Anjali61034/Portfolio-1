@@ -4,24 +4,12 @@ import {
   creator,
   web,
   javascript,
-  typescript,
   html,
   css,
-  reactjs,
-  redux,
-  tailwind,
   nodejs,
   mongodb,
   git,
-  figma,
-  docker,
-  meta,
-  starbucks,
-  tesla,
-  shopify,
-  carrent,
-  jobit,
-  tripguide,
+  tailwind,
   threejs,
 } from "../assets";
 
@@ -32,7 +20,11 @@ export const navLinks = [
   },
   {
     id: "work",
-    title: "Work",
+    title: "Experience",
+  },
+  {
+    id: "projects",
+    title: "Projects",
   },
   {
     id: "contact",
@@ -42,11 +34,11 @@ export const navLinks = [
 
 const services = [
   {
-    title: "Web Developer",
+    title: "Full Stack Developer",
     icon: web,
   },
   {
-    title: "React Native Developer",
+    title: "Mobile App Developer",
     icon: mobile,
   },
   {
@@ -73,22 +65,6 @@ const technologies = [
     icon: javascript,
   },
   {
-    name: "TypeScript",
-    icon: typescript,
-  },
-  {
-    name: "React JS",
-    icon: reactjs,
-  },
-  {
-    name: "Redux Toolkit",
-    icon: redux,
-  },
-  {
-    name: "Tailwind CSS",
-    icon: tailwind,
-  },
-  {
     name: "Node JS",
     icon: nodejs,
   },
@@ -105,151 +81,90 @@ const technologies = [
     icon: git,
   },
   {
-    name: "figma",
-    icon: figma,
-  },
-  {
-    name: "docker",
-    icon: docker,
+    name: "Tailwind CSS",
+    icon: tailwind,
   },
 ];
 
 const experiences = [
   {
-    title: "React.js Developer",
-    company_name: "Company 1",
-    icon: starbucks,
-    iconBg: "#383E56",
-    date: "March 2020 - April 2021",
+    title: "Full Stack App Developer Intern",
+    company_name: "CURE International India Trust",
+    iconBg: "#0a192f",
+    date: "Feb 2025 - Present",
     points: [
-      "Developing and maintaining web applications using React.js and other related technologies.",
-      "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-      "Implementing responsive design and ensuring cross-browser compatibility.",
-      "Participating in code reviews and providing constructive feedback to other developers.",
+      "Contributing to development of the Canary Indoor Navigation App - an accessible indoor navigation system for visually impaired users.",
+      "Integrated Navigine SDK with Android application for real-time indoor positioning and navigation.",
+      "Implemented BLE beacon based navigation with voice guidance features for enhanced accessibility.",
+      "Supported development of accessibility-focused navigation features, earning NSS Certificate of Achievement.",
     ],
   },
   {
-    title: "React Native Developer",
-    company_name: "Company 2",
-    icon: tesla,
-    iconBg: "#E6DEDD",
-    date: "Jan 2021 - Feb 2022",
+    title: "Mobile Application Developer",
+    company_name: "Uniway App",
+    iconBg: "#1a1a2e",
+    date: "2025",
     points: [
-      "Developing and maintaining web applications using React.js and other related technologies.",
-      "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-      "Implementing responsive design and ensuring cross-browser compatibility.",
-      "Participating in code reviews and providing constructive feedback to other developers.",
-    ],
-  },
-  {
-    title: "Web Developer",
-    company_name: "Company 3",
-    icon: shopify,
-    iconBg: "#383E56",
-    date: "Jan 2022 - Jan 2023",
-    points: [
-      "Developing and maintaining web applications using React.js and other related technologies.",
-      "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-      "Implementing responsive design and ensuring cross-browser compatibility.",
-      "Participating in code reviews and providing constructive feedback to other developers.",
-    ],
-  },
-  {
-    title: "Full stack Developer",
-    company_name: "Company 4",
-    icon: meta,
-    iconBg: "#E6DEDD",
-    date: "Jan 2023 - Present",
-    points: [
-      "Developing and maintaining web applications using React.js and other related technologies.",
-      "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-      "Implementing responsive design and ensuring cross-browser compatibility.",
-      "Participating in code reviews and providing constructive feedback to other developers.",
+      "Built and published college updates mobile application on Google Play Store.",
+      "Developed Flutter frontend with Django backend for seamless cross-platform experience.",
+      "Implemented centralized platform for notices, announcements, and academic updates.",
+      "Managed full development lifecycle from design to deployment on Play Store.",
     ],
   },
 ];
 
-const testimonials = [
+const achievements = [
   {
-    testimonial:
-      "I thought it was impossible to make a website as beautiful as our product, but Anjali proved me wrong.",
-    name: "XYZ",
-    designation: "CFO",
-    company: "Company 1",
-    image: "../assets/tech/black.webp",
+    title: "Research Paper Presentation",
+    description: "Presented 'IoT-based AQI Monitoring System for a Sustainable Campus' at Equinox 2025 International Conference",
   },
   {
-    testimonial:
-      "I've never met a web developer who truly cares about their clients' success like Anjali does.",
-    name: "XYZ",
-    designation: "COO",
-    company: "Company 2",
-    image:"../assets/tech/black.webp" ,
+    title: "Build With India Hackathon",
+    description: "Ranked among Top 5,000 teams out of 25,000 participants",
   },
   {
-    testimonial:
-      "After Anjali optimized our website, our traffic increased by 50%. We can't thank them enough!",
-    name: "XYZ",
-    designation: "CTO",
-    company: "Company 3",
-    image: "../assets/tech/black.webp",
+    title: "Web-a-thon 3rd Place",
+    description: "Secured 3rd Place at Avagahan Academic Fest, Maitreyi College",
+  },
+  {
+    title: "Google Cloud GenAI",
+    description: "Completed Google Cloud GenAI Study Jams 2024-2025",
   },
 ];
 
 const projects = [
   {
-    name: "Car Rent",
+    name: "Merit Portal",
     description:
-      "Web-based platform that allows users to search, book, and manage car rentals from various providers, providing a convenient and efficient solution for transportation needs.",
+      "A comprehensive student merit and academic management portal with responsive frontend and seamless backend data integration for tracking academic achievements and performance.",
     tags: [
       {
-        name: "react",
+        name: "javascript",
         color: "blue-text-gradient",
+      },
+      {
+        name: "node.js",
+        color: "green-text-gradient",
       },
       {
         name: "mongodb",
-        color: "green-text-gradient",
-      },
-      {
-        name: "tailwind",
         color: "pink-text-gradient",
       },
     ],
-    image: carrent,
-    source_code_link: "https://github.com/Anjali61034/Car-Rental-Project/",
+    source_code_link: "https://github.com/Anjali61034/",
+    live_link: "#",
   },
   {
-    name: "Job IT",
+    name: "Netflix Clone",
     description:
-      "Web application that enables users to search for job openings, view estimated salary ranges for positions, and locate available jobs based on their current location.",
+      "A streaming interface built using JavaScript and Vite, featuring dynamic UI components, optimized loading performance, and responsive design for an immersive viewing experience.",
     tags: [
       {
-        name: "react",
+        name: "javascript",
         color: "blue-text-gradient",
       },
       {
-        name: "restapi",
-        color: "green-text-gradient",
-      },
-      {
-        name: "scss",
-        color: "pink-text-gradient",
-      },
-    ],
-    image: jobit,
-    source_code_link: "https://github.com/Anjali61034/Job-IT/",
-  },
-  {
-    name: "Trip Guide",
-    description:
-      "A comprehensive travel booking platform that allows users to book flights, hotels, and rental cars, and offers curated recommendations for popular destinations.",
-    tags: [
-      {
-        name: "nextjs",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "supabase",
+        name: "vite",
         color: "green-text-gradient",
       },
       {
@@ -257,9 +172,30 @@ const projects = [
         color: "pink-text-gradient",
       },
     ],
-    image: tripguide,
     source_code_link: "https://github.com/Anjali61034/",
+    live_link: "#",
+  },
+  {
+    name: "Canary Navigation App",
+    description:
+      "An accessible indoor navigation system for visually impaired users featuring BLE beacon integration, real-time positioning with Navigine SDK, and voice-guided navigation.",
+    tags: [
+      {
+        name: "flutter",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "android",
+        color: "green-text-gradient",
+      },
+      {
+        name: "ble",
+        color: "pink-text-gradient",
+      },
+    ],
+    source_code_link: "https://github.com/Anjali61034/",
+    live_link: "#",
   },
 ];
 
-export { services, technologies, experiences, testimonials, projects };
+export { services, technologies, experiences, achievements, projects };
